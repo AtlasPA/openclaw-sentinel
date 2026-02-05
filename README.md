@@ -4,7 +4,7 @@ Supply chain security for [OpenClaw](https://github.com/openclaw/openclaw), [Cla
 
 Scans installed skills for obfuscated code, known-bad signatures, suspicious install behaviors, dependency confusion, and metadata inconsistencies — before and after installation.
 
-**Looking for automated countermeasures?** See [openclaw-sentinel-pro](https://github.com/AtlasPA/openclaw-sentinel-pro) for quarantine, blocking, community threat feeds, SBOM generation, and continuous monitoring.
+**Want automated countermeasures?** Upgrade to Pro — auto-quarantine, pre-install blocking, community threat feed sync, SBOM generation, and continuous monitoring. [Get Pro access](https://github.com/sponsors/AtlasPA).
 
 ## The Problem
 
@@ -60,7 +60,7 @@ All commands accept `--workspace /path/to/workspace`. If omitted, auto-detects f
 
 ## Free vs Pro
 
-| Feature | Free | [Pro](https://github.com/AtlasPA/openclaw-sentinel-pro) |
+| Feature | Free | [Pro](https://github.com/sponsors/AtlasPA) |
 |---------|------|-----|
 | Deep supply chain scanning | Yes | Yes |
 | Pre-install inspection (SAFE/REVIEW/REJECT) | Yes | Yes |
