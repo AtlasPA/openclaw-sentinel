@@ -4,11 +4,16 @@ Supply chain security for [OpenClaw](https://github.com/openclaw/openclaw), [Cla
 
 Scans installed skills for obfuscated code, known-bad signatures, suspicious install behaviors, dependency confusion, and metadata inconsistencies — before and after installation.
 
-**Want automated countermeasures?** Upgrade to Pro — auto-quarantine, pre-install blocking, community threat feed sync, SBOM generation, and continuous monitoring. [Get Pro access](https://github.com/sponsors/AtlasPA).
 
 ## The Problem
 
 You install skills from the community and trust them to run in your workspace. Any skill can contain obfuscated payloads, post-install hooks that execute arbitrary code, or supply chain attacks that silently modify other skills. Existing security tools verify file integrity after the fact — nothing inspects skills for supply chain risks before they run.
+
+## In the Wild: ClawHavoc
+
+In a coordinated supply chain attack dubbed **ClawHavoc**, 1,184 malicious skills were seeded into ClawHub. The skills contained obfuscated payloads, post-install execution hooks, and cross-skill file writes — exactly the patterns Sentinel detects.
+
+Sentinel's `inspect` command runs pre-installation, before any code touches your workspace. Every attack vector in the ClawHavoc campaign maps directly to Sentinel's detection rules: encoded execution, dynamic imports, shell injection, and hidden post-install behaviors. Had those users run `sentinel inspect` before installation, every one of those 1,184 skills would have been flagged.
 
 ## Install
 
@@ -58,9 +63,7 @@ All commands accept `--workspace /path/to/workspace`. If omitted, auto-detects f
 - **Serialization Attacks** — pickle.loads, marshal.loads (arbitrary code via deserialization)
 - **Known-Bad Hashes** — File SHA-256 matches against a local threat database
 
-## Free vs Pro
 
-| Feature | Free | [Pro](https://github.com/sponsors/AtlasPA) |
 |---------|------|-----|
 | Deep supply chain scanning | Yes | Yes |
 | Pre-install inspection (SAFE/REVIEW/REJECT) | Yes | Yes |
